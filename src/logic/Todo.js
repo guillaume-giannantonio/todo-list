@@ -1,4 +1,4 @@
-export default function Todo(title, description, dueDate, priority) {
+export default function (title, description, dueDate, priority) {
 	let completed = false;
 	return {
 		get title() {

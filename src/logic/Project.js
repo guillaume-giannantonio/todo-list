@@ -1,4 +1,4 @@
-function Project(name) {
+export default function (name) {
 	const todosList = []
 	return {
 		get name() {
