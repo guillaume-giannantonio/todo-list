@@ -6,9 +6,9 @@ export default function (projectsList, displayMenuID) {
 		const projectName = document.createElement('h3')
 		projectName.classList.add('project-name')
 		projectName.textContent = project.name
-		projectName.onclick = function () {
-			onProjectClickDisplay.call(this, displayMenuID, projectsList)
-		}
+		projectName.addEventListener('click', () => {
+			onProjectClickDisplay(project, displayMenu)
+		})
 		displayMenu.appendChild(projectName)
 	})
 }
