@@ -8,10 +8,11 @@ export default function () {
 
 	const leftMenu = document.createElement('leftMenu')
 	leftMenu.classList.add('left-menu')
+	leftMenu.id = 'leftMenu'
 	const h2 = document.createElement('h2')
 	h2.textContent = 'Projects'
 	leftMenu.appendChild(h2)
 	content.appendChild(leftMenu)
-	
+
 	return content
 }
