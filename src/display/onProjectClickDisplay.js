@@ -26,7 +26,7 @@ export default function (project, projectObject, displayMenu) {
 		let description = prompt('Enter a description')
 		let dueDate = prompt('Enter a due date')
 		let priority = prompt('Enter a priority')
-		let todo = Todo(title, description, dueDate, priority)
+		let todo = Todo(title, description, dueDate, priority, false)
 		projectObject.addTodo(todo)
 		let alreadyStore = JSON.parse(localStorage.getItem(projectObject.name))
 		let newObj = {}

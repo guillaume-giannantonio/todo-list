@@ -1,5 +1,4 @@
-export default function (title, description, dueDate, priority) {
-	let completed = false;
+export default function (title, description, dueDate, priority, completed) {
 	return {
 		get title() {
 			return title

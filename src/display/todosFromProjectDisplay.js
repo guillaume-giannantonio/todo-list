@@ -31,9 +31,27 @@ export default function (projectObject) {
 			if (e.target.checked) {
 				todo.completed = true
 				todoNode.style.backgroundColor = 'green'
+				let alreadyStore = JSON.parse(localStorage.getItem(projectObject.name))
+				let newObj = {}
+				for (const todoItem in alreadyStore) {
+					newObj[todoItem] = alreadyStore[todoItem]
+					if (todoItem === todo.title) {
+						newObj[todoItem].completed = true
+					}
+				}
+				localStorage.setItem(projectObject.name, JSON.stringify(newObj))
 			} else {
 				todo.completed = false
 				todoNode.style.backgroundColor = 'lightgrey'
+				let alreadyStore = JSON.parse(localStorage.getItem(projectObject.name))
+				let newObj = {}
+				for (const todoItem in alreadyStore) {
+					newObj[todoItem] = alreadyStore[todoItem]
+					if (todoItem === todo.title) {
+						newObj[todoItem].completed = false
+					}
+				}
+				localStorage.setItem(projectObject.name, JSON.stringify(newObj))
 			}
 		})
 
