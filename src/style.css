@@ -77,8 +77,17 @@ header > h1 {
     width: 70vw;
     background-color: lightgrey;
     display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+}
+
+.todoUp {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10px;
-    height: 50px;
+}
+
+.todo-right {
+    display: flex;
+    align-items: center;
 }
