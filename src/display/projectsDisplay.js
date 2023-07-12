@@ -28,5 +28,6 @@ export default function projectsDisplay(projectsList, displayMenuID) {
 			projectsDisplay(projectsList, displayMenuID)
 		}
 	})
+
 	displayMenu.appendChild(addProject)
 }

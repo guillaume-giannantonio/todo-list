@@ -1,4 +1,5 @@
 import todosFromProjectDisplay from './todosFromProjectDisplay';
+import Todo from '../logic/Todo';
 
 export default function (project, projectObject, displayMenu) {
 	const children = displayMenu.children
@@ -11,5 +12,23 @@ export default function (project, projectObject, displayMenu) {
 	while (main.hasChildNodes()) {
 		main.removeChild(main.firstChild)
 	}
+
+	const header = document.querySelector('header')
+	const addTodo = document.createElement('button')
+	if (document.getElementById('addTodoButton') !== null) {
+		header.removeChild(document.getElementById('addTodoButton'))
+	}
+	addTodo.textContent = 'Add a todo'
+	addTodo.id = 'addTodoButton'
+
+	addTodo.addEventListener('click', () => {
+		let title = prompt('Enter a title')
+		let description = prompt('Enter a description')
+		let dueDate = prompt('Enter a due date')
+		let priority = prompt('Enter a priority')
+		let todo = Todo(title, description, dueDate, priority)
+		projectObject.addTodo(todo)
+	})
+	header.appendChild(addTodo)
 	todosFromProjectDisplay(projectObject)
 }
