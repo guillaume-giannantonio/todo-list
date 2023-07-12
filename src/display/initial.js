@@ -12,7 +12,17 @@ export default function () {
 	const h2 = document.createElement('h2')
 	h2.textContent = 'Projects'
 	leftMenu.appendChild(h2)
-	content.appendChild(leftMenu)
+
+	const bottom = document.createElement('bottom')
+	bottom.classList.add('bottom')
+	bottom.appendChild(leftMenu)
+
+	const main = document.createElement('div')
+	main.id = 'main'
+	main.classList.add('main')
+	bottom.appendChild(main)
+
+	content.appendChild(bottom)
 
 	return content
 }
