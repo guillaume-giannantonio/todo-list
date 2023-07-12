@@ -6,18 +6,11 @@ import projectsDisplay from './display/projectsDisplay';
 
 const projectList = []
 
-const myTodo = Todo('myTodo', 'this is my first todo', '06-11-2023', 5)
-const mySecondTodo = Todo('mySecondTodo', 'this is my second todo', '07-12-2023', 5)
-const myProject = Project('myProject')
-const mySecondProject = Project('mySecondProject')
-myProject.addTodo(myTodo)
-myProject.addTodo(mySecondTodo)
-console.log(myProject)
+const defaultProject = Project('Default')
 
 const body = document.querySelector('body')
 const content = initial()
 body.appendChild(content)
 
-projectList.push(myProject)
-projectList.push(mySecondProject)
+projectList.push(defaultProject)
 projectsDisplay(projectList, 'leftMenu')
