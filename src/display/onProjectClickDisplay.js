@@ -29,29 +29,19 @@ export default function (project, projectObject, displayMenu) {
 		let todo = Todo(title, description, dueDate, priority)
 		projectObject.addTodo(todo)
 		let alreadyStore = JSON.parse(localStorage.getItem(projectObject.name))
-		let newStore = JSON.stringify({
-			title,
+		let newObj = {}
+		newObj[title] = {
 			description,
 			dueDate,
 			priority,
 			completed: false
-		})
-		if (alreadyStore === null) {
-			localStorage.setItem(projectObject.name, newStore)
-		} else {
-			localStorage.setItem(projectObject.name, JSON.stringify(Object.assign(alreadyStore, {
-				title,
-				description,
-				dueDate,
-				priority,
-				completed: false
-			})))
 		}
-		/*localStorage[projectObject.name]['title'] = title
-		localStorage[projectObject.name]['description'] = description
-		localStorage[projectObject.name]['priority'] = priority
-		localStorage[projectObject.name]['priority'] = priority
-		localStorage[projectObject.name]['completed'] = false*/
+		if (alreadyStore !== null) {
+			for (const todo in alreadyStore) {
+				newObj[todo] = alreadyStore[todo]
+			}
+		}
+		localStorage.setItem(projectObject.name, JSON.stringify(newObj))
 	})
 	header.appendChild(addTodo)
 	todosFromProjectDisplay(projectObject)
